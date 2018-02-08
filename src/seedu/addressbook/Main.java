@@ -1,9 +1,5 @@
 package seedu.addressbook;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
 import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.commands.ExitCommand;
@@ -14,6 +10,10 @@ import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.storage.StorageFile.InvalidStorageFilePathException;
 import seedu.addressbook.storage.StorageFile.StorageOperationException;
 import seedu.addressbook.ui.TextUi;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -105,13 +105,18 @@ public class Main {
      * @param command user command
      * @return result of the command
      */
+    //credit to #111, Cho Chih Tun for helping me and explaining
     private CommandResult executeCommand(Command command)  {
-        try {
-            command.setData(addressBook, lastShownList);
-            CommandResult result = command.execute();
+        command.setData(addressBook, lastShownList);
+        CommandResult result = command.execute();
+        try{
             storage.save(addressBook);
             return result;
-        } catch (Exception e) {
+        } catch(StorageOperationException e){
+            ui.showToUser(e.getMessage());
+            return result;
+        }
+        catch (Exception e) {
             ui.showToUser(e.getMessage());
             throw new RuntimeException(e);
         }
