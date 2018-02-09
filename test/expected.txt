@@ -86,51 +86,65 @@
 || Tags names should be alphanumeric
 || ===================================================
 || Enter command: || [Command entered:  add Adam Brown p/111111 e/adam@gmail.com a/111, alpha street]
-|| Person addresses require a block number, a street name, a unit number and a postal code
+|| Person addresses require a block number, a street name, a unit number and a 6-digit postal code number
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 
 || 0 persons listed!
 || ===================================================
-|| Enter command: || [Command entered:  add Betsy Choo pp/222222 pe/benchoo@nus.edu.sg pa/222, beta street, 123444 t/secretive]
-|| New person added: Betsy Choo Phone: (private) 222222 Email: (private) benchoo@nus.edu.sg Address: (private) 222, beta street, 123444 Tags: [secretive]
+|| Enter command: || [Command entered:  add Adam Brown p/111111 e/adam@gmail.com a/111, 111111]
+|| Person addresses require a block number, a street name, a unit number and a 6-digit postal code number
+|| ===================================================
+|| Enter command: || [Command entered:  list]
+|| 
+|| 0 persons listed!
+|| ===================================================
+|| Enter command: || [Command entered:  add Adam Brown p/111111 e/adam@gmail.com a/alpha street, 111111]
+|| Person addresses require a block number, a street name, a unit number and a 6-digit postal code number
+|| ===================================================
+|| Enter command: || [Command entered:  list]
+|| 
+|| 0 persons listed!
+|| ===================================================
+|| Enter command: || [Command entered:  add Betsy Choo pp/222222 pe/benchoo@nus.edu.sg pa/222, beta street, #01-23, 123444 t/secretive]
+|| New person added: Betsy Choo Phone: (private) 222222 Email: (private) benchoo@nus.edu.sg Address: (private) 222, beta street, #01-23, 123444 Tags: [secretive]
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo Tags: [secretive]
 || 
 || 1 persons listed!
 || ===================================================
-|| Enter command: || [Command entered:  add Charlie Dickson pp/333333 e/charlie.d@nus.edu.sg a/333, gamma street, 433221 t/friends t/school]
-|| New person added: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
+|| Enter command: || [Command entered:  add Charlie Dickson pp/333333 e/charlie.d@nus.edu.sg a/333, gamma street, 61A, 433221 t/friends t/school]
+|| New person added: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo Tags: [secretive]
-|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
+|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
 || 
 || 2 persons listed!
 || ===================================================
-|| Enter command: || [Command entered:  add Dickson Ee p/444444 pe/dickson@nus.edu.sg a/444, delta street, Singapore 123455 t/friends]
-|| New person added: Dickson Ee Phone: 444444 Email: (private) dickson@nus.edu.sg Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| Enter command: || [Command entered:  add Dickson Ee p/444444 pe/dickson@nus.edu.sg a/444, delta street, #23-01, Singapore 123455 t/friends]
+|| New person added: Dickson Ee Phone: 444444 Email: (private) dickson@nus.edu.sg Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo Tags: [secretive]
-|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
-|| 	3. Dickson Ee Phone: 444444 Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
+|| 	3. Dickson Ee Phone: 444444 Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || 
 || 3 persons listed!
 || ===================================================
-|| Enter command: || [Command entered:  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street, 123333 t/tubers t/starchy]
-|| New person added: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street, 123333 Tags: [tubers][starchy]
+|| Enter command: || [Command entered:  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street, #05-55, 123333 t/tubers t/starchy]
+|| New person added: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street, #05-55, 123333 Tags: [tubers][starchy]
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo Tags: [secretive]
-|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
-|| 	3. Dickson Ee Phone: 444444 Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
+|| 	3. Dickson Ee Phone: 444444 Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || 	4. Esther Potato Phone: 555555 Email: esther@not.a.real.potato Tags: [tubers][starchy]
 || 
 || 4 persons listed!
 || ===================================================
-|| Enter command: || [Command entered:  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street, 123333 t/tubers t/starchy]
+|| Enter command: || [Command entered:  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street, #05-55, 123333 t/tubers t/starchy]
 || This person already exists in the address book
 || ===================================================
 || Enter command: || [Command entered:  view]
@@ -173,25 +187,25 @@
 || Viewing person: Betsy Choo Tags: [secretive]
 || ===================================================
 || Enter command: || [Command entered:  viewall 1]
-|| Viewing person: Betsy Choo Phone: (private) 222222 Email: (private) benchoo@nus.edu.sg Address: (private) 222, beta street, 123444 Tags: [secretive]
+|| Viewing person: Betsy Choo Phone: (private) 222222 Email: (private) benchoo@nus.edu.sg Address: (private) 222, beta street, #01-23, 123444 Tags: [secretive]
 || ===================================================
 || Enter command: || [Command entered:  view 2]
-|| Viewing person: Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
+|| Viewing person: Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
 || ===================================================
 || Enter command: || [Command entered:  view 3]
-|| Viewing person: Dickson Ee Phone: 444444 Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| Viewing person: Dickson Ee Phone: 444444 Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || ===================================================
 || Enter command: || [Command entered:  view 4]
 || Viewing person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Tags: [tubers][starchy]
 || ===================================================
 || Enter command: || [Command entered:  viewall 2]
-|| Viewing person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
+|| Viewing person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
 || ===================================================
 || Enter command: || [Command entered:  viewall 3]
-|| Viewing person: Dickson Ee Phone: 444444 Email: (private) dickson@nus.edu.sg Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| Viewing person: Dickson Ee Phone: 444444 Email: (private) dickson@nus.edu.sg Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || ===================================================
 || Enter command: || [Command entered:  viewall 4]
-|| Viewing person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street, 123333 Tags: [tubers][starchy]
+|| Viewing person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street, #05-55, 123333 Tags: [tubers][starchy]
 || ===================================================
 || Enter command: || [Command entered:  find]
 || Invalid command format! 
@@ -217,14 +231,14 @@
 || 1 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  find Dickson]
-|| 	1. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
-|| 	2. Dickson Ee Phone: 444444 Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| 	1. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
+|| 	2. Dickson Ee Phone: 444444 Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || 
 || 2 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  find Charlie Betsy]
 || 	1. Betsy Choo Tags: [secretive]
-|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
+|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
 || 
 || 2 persons listed!
 || ===================================================
@@ -247,7 +261,7 @@
 || The person index provided is invalid
 || ===================================================
 || Enter command: || [Command entered:  delete 2]
-|| Deleted Person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street, 433221 Tags: [school][friends]
+|| Deleted Person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street, 61A, 433221 Tags: [school][friends]
 || ===================================================
 || Enter command: || [Command entered:  delete 2]
 || Person could not be found in address book
@@ -260,25 +274,25 @@
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo Tags: [secretive]
-|| 	2. Dickson Ee Phone: 444444 Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| 	2. Dickson Ee Phone: 444444 Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || 	3. Esther Potato Phone: 555555 Email: esther@not.a.real.potato Tags: [tubers][starchy]
 || 
 || 3 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  delete 3]
-|| Deleted Person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street, 123333 Tags: [tubers][starchy]
+|| Deleted Person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street, #05-55, 123333 Tags: [tubers][starchy]
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo Tags: [secretive]
-|| 	2. Dickson Ee Phone: 444444 Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| 	2. Dickson Ee Phone: 444444 Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || 
 || 2 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  delete 1]
-|| Deleted Person: Betsy Choo Phone: (private) 222222 Email: (private) benchoo@nus.edu.sg Address: (private) 222, beta street, 123444 Tags: [secretive]
+|| Deleted Person: Betsy Choo Phone: (private) 222222 Email: (private) benchoo@nus.edu.sg Address: (private) 222, beta street, #01-23, 123444 Tags: [secretive]
 || ===================================================
 || Enter command: || [Command entered:  list]
-|| 	1. Dickson Ee Phone: 444444 Address: 444, delta street, Singapore 123455 Tags: [friends]
+|| 	1. Dickson Ee Phone: 444444 Address: 444, delta street, #23-01, Singapore 123455 Tags: [friends]
 || 
 || 1 persons listed!
 || ===================================================
