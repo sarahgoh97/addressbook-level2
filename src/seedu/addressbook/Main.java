@@ -115,8 +115,7 @@ public class Main {
         } catch(StorageOperationException e){
             ui.showToUser(e.getMessage());
             return result;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             ui.showToUser(e.getMessage());
             throw new RuntimeException(e);
         }

@@ -52,6 +52,8 @@
   list
   add Dickson Ee p/444444 pe/dickson@nus.edu.sg a/444, delta street, #23-01, Singapore 123455 t/friends
   list
+  add Dickson Ee p/444444 pe/dickson@nus.edu.sg a/444, delta street, #23-01, 123455 t/friends
+  list
   add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street, #05-55, 123333 t/tubers t/starchy
   list
 
