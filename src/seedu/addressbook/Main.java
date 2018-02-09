@@ -105,13 +105,18 @@ public class Main {
      * @param command user command
      * @return result of the command
      */
+    //credit to #111, Cho Chih Tun for helping me and explaining
     private CommandResult executeCommand(Command command)  {
-        try {
-            command.setData(addressBook, lastShownList);
-            CommandResult result = command.execute();
-            storage.save(addressBook); //try here and use storage operation exception
+        command.setData(addressBook, lastShownList);
+        CommandResult result = command.execute();
+        try{
+            storage.save(addressBook);
             return result;
-        } catch (Exception e) {
+        } catch(StorageOperationException e){
+            ui.showToUser(e.getMessage());
+            return result;
+        }
+        catch (Exception e) {
             ui.showToUser(e.getMessage());
             throw new RuntimeException(e);
         }
