@@ -12,6 +12,7 @@ public class Address {
     public static final String MESSAGE_ADDRESS_CONSTRAINTS =
             "Person addresses require a block number, a street name, a unit number and a 6-digit postal code number";
     private static final String ADDRESS_VALIDATION_REGEX = "\\d+,\\s.+,\\s.+,\\s(\\d{6}$)";
+    private static final String COMMA = ", ";
 
     public final String value;
     private boolean isPrivate;
@@ -31,15 +32,23 @@ public class Address {
         if (!isValidAddress(trimmedAddress)) {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
         } else {
-            int firstCommaIndex = address.indexOf(",");
-            block = new Block(address.substring(0,firstCommaIndex));
-            int secondCommaIndex = address.indexOf(",", firstCommaIndex+1);
-            street = new Street(address.substring(firstCommaIndex+2, secondCommaIndex));
-            int thirdCommaIndex = address.indexOf(",", secondCommaIndex+1);
-            unit = new Unit(address.substring(secondCommaIndex+2, thirdCommaIndex));
-            postalCode = new PostalCode(address.substring(thirdCommaIndex+2));
+            breakUpAddress(address);
         }
-        this.value = block.getBlock() + ", " + street.getStreet() + ", " + unit.getUnit() + ", " + postalCode.getPostalCode();
+        this.value = block.getBlock() + COMMA + street.getStreet() + COMMA + unit.getUnit() + COMMA + postalCode.getPostalCode();
+    }
+
+    /**
+     * Breaking up the address into its attributes: Block, Street, Unit and PostalCode
+     * @param address
+     */
+    private void breakUpAddress(String address) {
+        int firstCommaIndex = address.indexOf(COMMA);
+        block = new Block(address.substring(0,firstCommaIndex));
+        int secondCommaIndex = address.indexOf(COMMA, firstCommaIndex+1);
+        street = new Street(address.substring(firstCommaIndex+2, secondCommaIndex));
+        int thirdCommaIndex = address.indexOf(COMMA, secondCommaIndex+1);
+        unit = new Unit(address.substring(secondCommaIndex+2, thirdCommaIndex));
+        postalCode = new PostalCode(address.substring(thirdCommaIndex+2));
     }
 
     /**
@@ -70,7 +79,9 @@ public class Address {
         return isPrivate;
     }
 }
-
+/**
+ * Represents a Person's address's block number in the address book.
+ */
 class Block {
     private int blockNumber;
 
@@ -82,7 +93,9 @@ class Block {
         return blockNumber;
     }
 }
-
+/**
+ * Represents a Person's address's street name in the address book.
+ */
 class Street {
     private String streetName;
 
@@ -94,7 +107,9 @@ class Street {
         return streetName;
     }
 }
-
+/**
+ * Represents a Person's address's unit in the address book.
+ */
 class Unit {
     private String unitName;
 
@@ -106,7 +121,9 @@ class Unit {
         return unitName;
     }
 }
-
+/**
+ * Represents a Person's address's postal code in the address book.
+ */
 class PostalCode {
     private int postalCodeNumber;
 
