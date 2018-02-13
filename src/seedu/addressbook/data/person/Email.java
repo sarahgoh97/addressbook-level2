@@ -14,7 +14,6 @@ public class Email extends Contact {
     public static final String EMAIL_VALIDATION_REGEX = "[\\w\\.]+@[\\w\\.]+";
 
     public final String value;
-    private boolean isPrivate;
 
     /**
      * Validates given email.
@@ -23,7 +22,6 @@ public class Email extends Contact {
      */
     public Email(String email, boolean isPrivate) throws IllegalValueException {
         super(EXAMPLE, MESSAGE_EMAIL_CONSTRAINTS, EMAIL_VALIDATION_REGEX, email, isPrivate);
-        this.isPrivate = isPrivate();
         this.value = super.value;
     }
 
