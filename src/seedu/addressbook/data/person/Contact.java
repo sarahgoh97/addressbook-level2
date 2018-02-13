@@ -39,6 +39,13 @@ public class Contact {
         return test.matches(VALIDATION_REGEX);
     }
 
+    /**
+     * @return specific contact information of a person
+     */
+    public String getValue() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return value;
