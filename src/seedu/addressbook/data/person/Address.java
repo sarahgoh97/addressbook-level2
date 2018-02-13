@@ -4,9 +4,9 @@ import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
  * Represents a Person's address in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidContact(String)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
-public class Address extends Contact {
+public class Address {
 
     public static final String EXAMPLE = "123, some street, some unit, 117417";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS =
@@ -15,6 +15,8 @@ public class Address extends Contact {
     private static final String ADDRESS_VALIDATION_REGEX = "\\d+,\\s.+,\\s.+,\\s(\\d{6}$)";
     private static final String COMMA = ", ";
 
+    public final String value;
+    private boolean isPrivate;
     private Block block;
     private Street street;
     private Unit unit;
@@ -26,8 +28,14 @@ public class Address extends Contact {
      * @throws IllegalValueException if given address string is invalid.
      */
     public Address(String address, boolean isPrivate) throws IllegalValueException {
-        super(MESSAGE_ADDRESS_CONSTRAINTS, ADDRESS_VALIDATION_REGEX, address, isPrivate);
-        breakUpAddress(super.getValue());
+        String trimmedAddress = address.trim();
+        this.isPrivate = isPrivate;
+        if (!isValidAddress(trimmedAddress)) {
+            throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
+        } else {
+            breakUpAddress(address);
+        }
+        this.value = block.getBlock() + COMMA + street.getStreet() + COMMA + unit.getUnit() + COMMA + postalCode.getPostalCode();
     }
 
     /**
@@ -44,12 +52,16 @@ public class Address extends Contact {
         postalCode = new PostalCode(address.substring(thirdCommaIndex+2));
     }
 
-    @Override
     /**
-     * @return address of a person
+     * Returns true if a given string is a valid person address.
      */
-    public String getValue() {
-        return block.getBlock() + COMMA + street.getStreet() + COMMA + unit.getUnit() + COMMA + postalCode.getPostalCode();
+    public static boolean isValidAddress(String test) {
+        return test.matches(ADDRESS_VALIDATION_REGEX);
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 
     @Override
@@ -59,6 +71,14 @@ public class Address extends Contact {
                 && this.value.equals(((Address) other).value)); // state check
     }
 
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
 }
 /**
  * Represents a Person's address's block number in the address book.
