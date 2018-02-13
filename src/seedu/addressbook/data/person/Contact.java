@@ -8,26 +8,24 @@ import seedu.addressbook.data.exception.IllegalValueException;
 
 public class Contact {
     protected Person person;
-    private static String EXAMPLE;
     private static String MESSAGE_CONSTRAINTS;
     private static String VALIDATION_REGEX;
 
-    protected final String value;
+    public final String value;
     private boolean isPrivate;
 
     /**
      * Validates given contact.
      *
-     * @throws IllegalValueException if given contact is invalid.
+     * @throws IllegalValueException if given contact is invalid {@link #isValidContact(String) }.
      */
-    public Contact(String example, String constraints, String regex, String received, boolean isPrivate) throws IllegalValueException {
-        EXAMPLE = example;
+    public Contact(String constraints, String regex, String received, boolean isPrivate) throws IllegalValueException {
         MESSAGE_CONSTRAINTS = constraints;
         VALIDATION_REGEX = regex;
         this.isPrivate = isPrivate;
         String contact = received.trim();
         if (!isValidContact(contact)) {
-            throw new IllegalValueException(constraints);
+            throw new IllegalValueException(MESSAGE_CONSTRAINTS);
         }
         this.value = contact;
     }

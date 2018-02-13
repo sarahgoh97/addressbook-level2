@@ -4,7 +4,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
  * Represents a Person's email in the address book.
- * Guarantees: immutable; is valid as declared in {@link Contact}
+ * Guarantees: immutable; is valid as declared in {@link #isValidContact(String)}
  */
 public class Email extends Contact {
 
@@ -13,7 +13,6 @@ public class Email extends Contact {
             "Person emails should be 2 alphanumeric/period strings separated by '@'";
     public static final String EMAIL_VALIDATION_REGEX = "[\\w\\.]+@[\\w\\.]+";
 
-    public final String value;
 
     /**
      * Validates given email.
@@ -21,8 +20,7 @@ public class Email extends Contact {
      * @throws IllegalValueException if given email address string is invalid.
      */
     public Email(String email, boolean isPrivate) throws IllegalValueException {
-        super(EXAMPLE, MESSAGE_EMAIL_CONSTRAINTS, EMAIL_VALIDATION_REGEX, email, isPrivate);
-        this.value = super.value;
+        super(MESSAGE_EMAIL_CONSTRAINTS, EMAIL_VALIDATION_REGEX, email, isPrivate);
     }
 
 
