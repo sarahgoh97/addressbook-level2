@@ -18,7 +18,7 @@ public class Contact {
     /**
      * Validates given contact.
      *
-     * @throws IllegalValueException if given contact is invalid.
+     * @throws IllegalValueException if given contact is invalid {@link #isValidContact(String) }.
      */
     public Contact(String example, String constraints, String regex, String received, boolean isPrivate) throws IllegalValueException {
         EXAMPLE = example;
