@@ -15,7 +15,6 @@ public class Address extends Contact {
     private static final String ADDRESS_VALIDATION_REGEX = "\\d+,\\s.+,\\s.+,\\s(\\d{6}$)";
     private static final String COMMA = ", ";
 
-    public final String value;
     private Block block;
     private Street street;
     private Unit unit;
@@ -28,8 +27,7 @@ public class Address extends Contact {
      */
     public Address(String address, boolean isPrivate) throws IllegalValueException {
         super(EXAMPLE, MESSAGE_ADDRESS_CONSTRAINTS, ADDRESS_VALIDATION_REGEX, address, isPrivate);
-        breakUpAddress(super.value);
-        this.value = block.getBlock() + COMMA + street.getStreet() + COMMA + unit.getUnit() + COMMA + postalCode.getPostalCode();
+        breakUpAddress(super.getValue());
     }
 
     /**
@@ -44,6 +42,14 @@ public class Address extends Contact {
         int thirdCommaIndex = address.indexOf(COMMA, secondCommaIndex+1);
         unit = new Unit(address.substring(secondCommaIndex+2, thirdCommaIndex));
         postalCode = new PostalCode(address.substring(thirdCommaIndex+2));
+    }
+
+    @Override
+    /**
+     * @return address of a person
+     */
+    public String getValue() {
+        return block.getBlock() + COMMA + street.getStreet() + COMMA + unit.getUnit() + COMMA + postalCode.getPostalCode();
     }
 
     @Override
