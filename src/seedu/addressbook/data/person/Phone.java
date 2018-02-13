@@ -12,9 +12,6 @@ public class Phone extends Contact{
     public static final String MESSAGE_PHONE_CONSTRAINTS = "Person phone numbers should only contain numbers";
     public static final String PHONE_VALIDATION_REGEX = "\\d+";
 
-    public final String value;
-
-
     /**
      * Validates given phone number.
      *
@@ -22,13 +19,12 @@ public class Phone extends Contact{
      */
     public Phone(String phone, boolean isPrivate) throws IllegalValueException {
         super(EXAMPLE, MESSAGE_PHONE_CONSTRAINTS, PHONE_VALIDATION_REGEX, phone, isPrivate);
-        this.value = super.value;
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Phone // instanceof handles nulls
-                && this.value.equals(((Phone) other).value)); // state check
+                && this.getValue().equals(((Phone) other).getValue())); // state check
     }
 }
