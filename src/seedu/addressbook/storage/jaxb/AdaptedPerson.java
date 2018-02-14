@@ -1,22 +1,16 @@
 package seedu.addressbook.storage.jaxb;
 
-import java.util.ArrayList;
-import java.util.List;
+import seedu.addressbook.common.Utils;
+import seedu.addressbook.data.exception.IllegalValueException;
+import seedu.addressbook.data.person.*;
+import seedu.addressbook.data.tag.Tag;
+import seedu.addressbook.data.tag.UniqueTagList;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlValue;
-
-import seedu.addressbook.common.Utils;
-import seedu.addressbook.data.exception.IllegalValueException;
-import seedu.addressbook.data.person.Address;
-import seedu.addressbook.data.person.Email;
-import seedu.addressbook.data.person.Name;
-import seedu.addressbook.data.person.Person;
-import seedu.addressbook.data.person.Phone;
-import seedu.addressbook.data.person.ReadOnlyPerson;
-import seedu.addressbook.data.tag.Tag;
-import seedu.addressbook.data.tag.UniqueTagList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * JAXB-friendly adapted person data holder class.
@@ -38,6 +32,8 @@ public class AdaptedPerson {
     private AdaptedContactDetail email;
     @XmlElement(required = true)
     private AdaptedContactDetail address;
+    @XmlElement(required = true)
+    private AdaptedContactDetail birthday;
 
     @XmlElement
     private List<AdaptedTag> tagged = new ArrayList<>();
@@ -67,6 +63,10 @@ public class AdaptedPerson {
         address = new AdaptedContactDetail();
         address.isPrivate = source.getAddress().isPrivate();
         address.value = source.getAddress().value;
+
+        birthday = new AdaptedContactDetail();
+        birthday.isPrivate = source.getBirthday().isPrivate();
+        birthday.value = source.getBirthday().value;
 
         tagged = new ArrayList<>();
         for (Tag tag : source.getTags()) {
@@ -107,7 +107,8 @@ public class AdaptedPerson {
         final Phone phone = new Phone(this.phone.value, this.phone.isPrivate);
         final Email email = new Email(this.email.value, this.email.isPrivate);
         final Address address = new Address(this.address.value, this.address.isPrivate);
+        final Birthday birthday = new Birthday(this.birthday.value, this.birthday.isPrivate);
         final UniqueTagList tags = new UniqueTagList(personTags);
-        return new Person(name, phone, email, address, tags);
+        return new Person(name, phone, email, address, birthday, tags);
     }
 }
