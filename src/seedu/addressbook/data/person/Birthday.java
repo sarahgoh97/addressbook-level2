@@ -8,10 +8,10 @@ import seedu.addressbook.data.exception.IllegalValueException;
  */
 
 public class Birthday {
-    public static final String EXAMPLE = "09/08/1965";
+    public static final String EXAMPLE = "09-08-1965";
     public static final String MESSAGE_BIRTHDAY_CONSTRAINTS =
-                "Person birthdays should be separated by '/' and in the format DD/MM/YYYY";
-    public static final String BIRTHDAY_VALIDATION_REGEX = "\\d{2}\\/\\d{2}\\/\\d{4}";
+                "Person birthdays should be separated by '-' and in the format DD-MM-YYYY";
+    public static final String BIRTHDAY_VALIDATION_REGEX = "\\d{2}\\-\\d{2}\\-\\d{4}";
 
     public final String value;
     private boolean isPrivate;
