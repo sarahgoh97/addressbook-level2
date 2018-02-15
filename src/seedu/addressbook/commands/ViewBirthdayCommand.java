@@ -20,22 +20,20 @@ public class ViewBirthdayCommand extends Command{
 
     private final int month;
 
-    public ViewBirthdayCommand(String month) {
-        this.month = Integer.parseInt(month.trim());
+    public ViewBirthdayCommand(int month) {
+        this.month = month;
     }
 
     //taken from ListCommand
     @Override
     public CommandResult execute() throws UniquePersonList.DuplicatePersonException {
+        if (!Birthday.isValidMonth(month)) {
+            return new CommandResult(Messages.MESSAGE_INVALID_MONTH);
+        }
         if (!Birthday.months.contains(month)) {
             return new CommandResult(Messages.MESSAGE_NO_PERSONS_BIRTHDAY_MONTH);
         }
         List<ReadOnlyPerson> birthdayPersons = addressBook.getBirthdayPersons(month).immutableListView();
         return new CommandResult(getMessageForPersonListShownSummary(birthdayPersons), birthdayPersons);
-
-     /*       final ReadOnlyPerson target = getTargetPerson();
-
-            return new CommandResult(String.format(MESSAGE_VIEW_PERSON_DETAILS, target.getAsTextHidePrivate()));
-        }  */
     }
 }

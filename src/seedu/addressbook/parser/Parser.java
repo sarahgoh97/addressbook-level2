@@ -1,6 +1,7 @@
 package seedu.addressbook.parser;
 
 import seedu.addressbook.commands.*;
+import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.exception.IllegalValueException;
 
 import java.util.*;
@@ -81,7 +82,7 @@ public class Parser {
             return prepareView(arguments);
 
         case ViewBirthdayCommand.COMMAND_WORD:
-            return new ViewBirthdayCommand(arguments);
+            return prepareViewBirthday(arguments);
 
         case ViewAllCommand.COMMAND_WORD:
             return prepareViewAll(arguments);
@@ -185,6 +186,25 @@ public class Parser {
                     ViewCommand.MESSAGE_USAGE));
         } catch (NumberFormatException nfe) {
             return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        }
+    }
+
+    /**
+     * Parses arguments in the context of the viewbirthday command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareViewBirthday(String args) {
+
+        try {
+            final int month = parseArgsAsDisplayedIndex(args);
+            return new ViewBirthdayCommand(month);
+        } catch (ParseException pe) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    ViewBirthdayCommand.MESSAGE_USAGE));
+        } catch (NumberFormatException nfe) {
+            return new IncorrectCommand(Messages.MESSAGE_INVALID_MONTH);
         }
     }
 

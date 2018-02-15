@@ -132,7 +132,12 @@ public class ViewCommandTest {
         AddressBook expectedAddressBook = TestUtil.clone(addressBook);
 
         viewCommand.setData(addressBook, relevantPersons);
-        CommandResult result = viewCommand.execute();
+        CommandResult result = null;
+        try {
+            result = viewCommand.execute();
+        } catch (UniquePersonList.DuplicatePersonException e) {
+            e.printStackTrace();
+        }
 
         // feedback message is as expected and there are no relevant persons returned.
         assertEquals(expectedMessage, result.feedbackToUser);
