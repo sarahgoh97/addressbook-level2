@@ -2,6 +2,8 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
 
+import java.util.ArrayList;
+
 /**
  * Represents a Person's birthday in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidBirthday(String)}
@@ -15,6 +17,8 @@ public class Birthday {
 
     public final String value;
     private boolean isPrivate;
+    public static ArrayList<Integer> months = new ArrayList<Integer>(12);
+    public final int month;
 
     /**
      * Validates given birthday.
@@ -28,6 +32,11 @@ public class Birthday {
             throw new IllegalValueException(MESSAGE_BIRTHDAY_CONSTRAINTS);
         }
         this.value = trimmedBirthday;
+        String month = trimmedBirthday.substring(3,5);
+        this.month = Integer.parseInt(month);
+        if (!months.contains(this.month)) {
+            months.add(Integer.parseInt(month));
+        }
     }
 
     /**
@@ -35,11 +44,11 @@ public class Birthday {
      */
     public static boolean isValidBirthday(String test) {
             return test.matches(BIRTHDAY_VALIDATION_REGEX);
-        }
+    }
     @Override
     public String toString() {
             return value;
-        }
+    }
 
     @Override
     public boolean equals(Object other) {

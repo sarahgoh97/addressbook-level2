@@ -1,10 +1,5 @@
 package seedu.addressbook.data;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 import seedu.addressbook.data.person.Person;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.data.person.UniquePersonList;
@@ -12,6 +7,11 @@ import seedu.addressbook.data.person.UniquePersonList.DuplicatePersonException;
 import seedu.addressbook.data.person.UniquePersonList.PersonNotFoundException;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Represents the entire address book. Contains the data of the address book.
@@ -112,6 +112,19 @@ public class AddressBook {
      */
     public UniquePersonList getAllPersons() {
         return new UniquePersonList(allPersons);
+    }
+
+    /**
+     * Returns a new UniquePersonList of persons in the address book in a birthday month at the time of the call.
+     */
+    public UniquePersonList getBirthdayPersons(int givenMonth) throws DuplicatePersonException {
+        UniquePersonList birthdayPersons = new UniquePersonList();
+        for (Person p: allPersons) {
+            if (p.getBirthday().month == givenMonth) {
+                birthdayPersons.add(p);
+            }
+        }
+        return new UniquePersonList(birthdayPersons);
     }
 
     /**
