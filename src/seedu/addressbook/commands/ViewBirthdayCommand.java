@@ -24,7 +24,7 @@ public class ViewBirthdayCommand extends Command{
         this.month = month;
     }
 
-    //taken from ListCommand
+    //returns list of people who's birthdays are not private in that month
     @Override
     public CommandResult execute() throws UniquePersonList.DuplicatePersonException {
         if (!Birthday.isValidMonth(month)) {
@@ -34,6 +34,9 @@ public class ViewBirthdayCommand extends Command{
             return new CommandResult(Messages.MESSAGE_NO_PERSONS_BIRTHDAY_MONTH);
         }
         List<ReadOnlyPerson> birthdayPersons = addressBook.getBirthdayPersons(month).immutableListView();
+        if (birthdayPersons.size() == 0) {
+            return new CommandResult(Messages.MESSAGE_NO_PERSONS_BIRTHDAY_MONTH);
+        }
         return new CommandResult(getMessageForPersonListShownSummary(birthdayPersons), birthdayPersons);
     }
 }

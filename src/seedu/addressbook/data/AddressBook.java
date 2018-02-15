@@ -120,7 +120,7 @@ public class AddressBook {
     public UniquePersonList getBirthdayPersons(int givenMonth) throws DuplicatePersonException {
         UniquePersonList birthdayPersons = new UniquePersonList();
         for (Person p: allPersons) {
-            if (p.getBirthday().month == givenMonth) {
+            if (p.getBirthday().month == givenMonth && !p.getBirthday().isPrivate()) {
                 birthdayPersons.add(p);
             }
         }
