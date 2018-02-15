@@ -80,6 +80,9 @@ public class Parser {
         case ViewCommand.COMMAND_WORD:
             return prepareView(arguments);
 
+        case ViewBirthdayCommand.COMMAND_WORD:
+            return new ViewBirthdayCommand(arguments);
+
         case ViewAllCommand.COMMAND_WORD:
             return prepareViewAll(arguments);
 
