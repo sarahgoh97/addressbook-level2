@@ -111,6 +111,19 @@ Examples:
   `viewall 1`<br>
   Views all details of the 1st person in the results of the `find` command.
 
+### View persons' birthdays in a month: `viewbirthday`
+Displays all persons whose birthdays are non-private and in a specific month.<br>
+Format: `viewbirthday INDEX`
+
+> Views all persons at the specified `INDEX`. 
+  The index refers to the month in the year (1 for January and 12 for December).
+
+Examples: 
+* `viewbirthday 2`<br>
+  Views all persons whose birthdays are non-private and are in the 2nd month (February).
+* `viewbirthday 11`<br> 
+  Views all persons whose birthdays are non-private and are in the 11th month (November).
+
 ### Clearing all entries : `clear`
 Clears all entries from the address book.<br>
 Format: `clear`  
