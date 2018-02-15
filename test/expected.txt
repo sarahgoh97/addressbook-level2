@@ -22,6 +22,9 @@
 || view: Views the non-private details of the person identified by the index number in the last shown person listing.
 || Parameters: INDEX
 || Example: view 1
+|| viewbirthday: Views all birthdays in the month identified by the number of the month (1 for January, 12 for December).
+|| Parameters: INDEX
+|| Example: viewbirthday 1
 || viewall: Views the non-private details of the person identified by the index number in the last shown person listing.
 || Parameters: INDEX
 || Example: viewall 1
@@ -52,46 +55,46 @@
 || Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS [p]b/BIRTHDAY [t/TAG]...
 || Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 b/08-09-1965 t/friends t/owesMoney
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name 12345 e/valid@email.butNoPhonePrefix a/valid, address b/00-00-0000]
+|| Enter command: || [Command entered:  add Valid Name 12345 e/valid@email.butNoPhonePrefix a/valid, address b/01-01-2000]
 || Invalid command format! 
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
 || Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS [p]b/BIRTHDAY [t/TAG]...
 || Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 b/08-09-1965 t/friends t/owesMoney
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name p/12345 valid@email.butNoPrefix a/valid, address b/00-00-0000]
+|| Enter command: || [Command entered:  add Valid Name p/12345 valid@email.butNoPrefix a/valid, address b/01-01-2000]
 || Invalid command format! 
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
 || Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS [p]b/BIRTHDAY [t/TAG]...
 || Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 b/08-09-1965 t/friends t/owesMoney
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@email.butNoAddressPrefix valid, address b/00-00-0000]
+|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@email.butNoAddressPrefix valid, address b/01-01-2000]
 || Invalid command format! 
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
 || Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS [p]b/BIRTHDAY [t/TAG]...
 || Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 b/08-09-1965 t/friends t/owesMoney
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@email.butNoBirthdayPrefix a/valid, address 00-00-0000]
+|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@email.butNoBirthdayPrefix a/valid, address 01-01-2000]
 || Invalid command format! 
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
 || Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS [p]b/BIRTHDAY [t/TAG]...
 || Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 b/08-09-1965 t/friends t/owesMoney
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@email.butNoTagPrefix a/valid, address b/00-00-0000 t/goodTag noPrefixTag]
+|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@email.butNoTagPrefix a/valid, address b/01-01-2000 t/goodTag noPrefixTag]
 || Tags names should be alphanumeric
 || ===================================================
-|| Enter command: || [Command entered:  add []\[;] p/12345 e/valid@e.mail a/valid, address, b/00-00-0000]
+|| Enter command: || [Command entered:  add []\[;] p/12345 e/valid@e.mail a/valid, address, b/01-01-2000]
 || Person names should be spaces or alphabetic characters
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name p/not_numbers e/valid@e.mail a/valid, address b/00-00-0000]
+|| Enter command: || [Command entered:  add Valid Name p/not_numbers e/valid@e.mail a/valid, address b/01-01-2000]
 || Person phone numbers should only contain numbers
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name p/12345 e/notAnEmail a/valid, address b/00-00-0000]
+|| Enter command: || [Command entered:  add Valid Name p/12345 e/notAnEmail a/valid, address b/01-01-2000]
 || Person emails should be 2 alphanumeric/period strings separated by '@'
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@e.mail a/valid, address b/00-00]
+|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@e.mail a/valid, address b/01-01]
 || Person birthdays should be separated by '-' and in the format DD-MM-YYYY
 || ===================================================
-|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@e.mail a/valid, address b/00-00-0000 t/invalid_-[.tag]
+|| Enter command: || [Command entered:  add Valid Name p/12345 e/valid@e.mail a/valid, address b/01-01-2000 t/invalid_-[.tag]
 || Tags names should be alphanumeric
 || ===================================================
 || Enter command: || [Command entered:  add Adam Brown p/111111 e/adam@gmail.com a/111, alpha street b/01-02-2003]
@@ -111,13 +114,13 @@
 || 
 || 2 persons listed!
 || ===================================================
-|| Enter command: || [Command entered:  add Charlie Dickson pp/333333 e/charlie.d@nus.edu.sg a/333, gamma street pb/23-12-2011 t/friends t/school]
-|| New person added: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: (private) 23-12-2011 Tags: [school][friends]
+|| Enter command: || [Command entered:  add Charlie Dickson pp/333333 e/charlie.d@nus.edu.sg a/333, gamma street b/23-12-2011 t/friends t/school]
+|| New person added: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Birthday: 01-02-2003 Tags: 
 || 	2. Betsy Choo Tags: [secretive]
-|| 	3. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friends]
+|| 	3. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || 
 || 3 persons listed!
 || ===================================================
@@ -127,24 +130,24 @@
 || Enter command: || [Command entered:  list]
 || 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Birthday: 01-02-2003 Tags: 
 || 	2. Betsy Choo Tags: [secretive]
-|| 	3. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friends]
+|| 	3. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || 	4. Dickson Ee Phone: 444444 Address: 444, delta street Birthday: 09-08-2007 Tags: [friends]
 || 
 || 4 persons listed!
 || ===================================================
-|| Enter command: || [Command entered:  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street b/15-02-1945 t/tubers t/starchy]
-|| New person added: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street Birthday: 15-02-1945 Tags: [tubers][starchy]
+|| Enter command: || [Command entered:  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street b/15-08-1945 t/tubers t/starchy]
+|| New person added: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street Birthday: 15-08-1945 Tags: [tubers][starchy]
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Birthday: 01-02-2003 Tags: 
 || 	2. Betsy Choo Tags: [secretive]
-|| 	3. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friends]
+|| 	3. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || 	4. Dickson Ee Phone: 444444 Address: 444, delta street Birthday: 09-08-2007 Tags: [friends]
-|| 	5. Esther Potato Phone: 555555 Email: esther@not.a.real.potato Birthday: 15-02-1945 Tags: [tubers][starchy]
+|| 	5. Esther Potato Phone: 555555 Email: esther@not.a.real.potato Birthday: 15-08-1945 Tags: [tubers][starchy]
 || 
 || 5 persons listed!
 || ===================================================
-|| Enter command: || [Command entered:  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street b/15-02-1945 t/tubers t/starchy]
+|| Enter command: || [Command entered:  add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street b/15-08-1945 t/tubers t/starchy]
 || This person already exists in the address book
 || ===================================================
 || Enter command: || [Command entered:  view]
@@ -190,22 +193,62 @@
 || Viewing person: Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Birthday: 01-02-2003 Tags: 
 || ===================================================
 || Enter command: || [Command entered:  view 3]
-|| Viewing person: Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friends]
+|| Viewing person: Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || ===================================================
 || Enter command: || [Command entered:  view 4]
 || Viewing person: Dickson Ee Phone: 444444 Address: 444, delta street Birthday: 09-08-2007 Tags: [friends]
 || ===================================================
 || Enter command: || [Command entered:  view 5]
-|| Viewing person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Birthday: 15-02-1945 Tags: [tubers][starchy]
+|| Viewing person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Birthday: 15-08-1945 Tags: [tubers][starchy]
 || ===================================================
 || Enter command: || [Command entered:  viewall 3]
-|| Viewing person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: (private) 23-12-2011 Tags: [school][friends]
+|| Viewing person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || ===================================================
 || Enter command: || [Command entered:  viewall 4]
 || Viewing person: Dickson Ee Phone: 444444 Email: (private) dickson@nus.edu.sg Address: 444, delta street Birthday: 09-08-2007 Tags: [friends]
 || ===================================================
 || Enter command: || [Command entered:  viewall 5]
-|| Viewing person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street Birthday: 15-02-1945 Tags: [tubers][starchy]
+|| Viewing person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street Birthday: 15-08-1945 Tags: [tubers][starchy]
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday]
+|| Invalid command format! 
+|| viewbirthday: Views all birthdays in the month identified by the number of the month (1 for January, 12 for December).
+|| Parameters: INDEX
+|| Example: viewbirthday 1
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday January]
+|| Months should be within 1 to 12, inclusive
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday one number only]
+|| Months should be within 1 to 12, inclusive
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday 2 3]
+|| Months should be within 1 to 12, inclusive
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday 0]
+|| Months should be within 1 to 12, inclusive
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday 13]
+|| Months should be within 1 to 12, inclusive
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday 1]
+|| Nobody has birthday in this month
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday 2]
+|| 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Birthday: 01-02-2003 Tags: 
+|| 
+|| 1 persons listed!
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday 8]
+|| 	1. Dickson Ee Phone: 444444 Address: 444, delta street Birthday: 09-08-2007 Tags: [friends]
+|| 	2. Esther Potato Phone: 555555 Email: esther@not.a.real.potato Birthday: 15-08-1945 Tags: [tubers][starchy]
+|| 
+|| 2 persons listed!
+|| ===================================================
+|| Enter command: || [Command entered:  viewbirthday 12]
+|| 	1. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
+|| 
+|| 1 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  find]
 || Invalid command format! 
@@ -231,14 +274,14 @@
 || 1 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  find Dickson]
-|| 	1. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friends]
+|| 	1. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || 	2. Dickson Ee Phone: 444444 Address: 444, delta street Birthday: 09-08-2007 Tags: [friends]
 || 
 || 2 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  find Charlie Betsy]
 || 	1. Betsy Choo Tags: [secretive]
-|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Tags: [school][friends]
+|| 	2. Charlie Dickson Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || 
 || 2 persons listed!
 || ===================================================
@@ -261,7 +304,7 @@
 || The person index provided is invalid
 || ===================================================
 || Enter command: || [Command entered:  delete 2]
-|| Deleted Person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: (private) 23-12-2011 Tags: [school][friends]
+|| Deleted Person: Charlie Dickson Phone: (private) 333333 Email: charlie.d@nus.edu.sg Address: 333, gamma street Birthday: 23-12-2011 Tags: [school][friends]
 || ===================================================
 || Enter command: || [Command entered:  delete 2]
 || Person could not be found in address book
@@ -272,16 +315,19 @@
 || Enter command: || [Command entered:  viewall 2]
 || Person could not be found in address book
 || ===================================================
+|| Enter command: || [Command entered:  viewbirthday 12]
+|| Nobody has birthday in this month
+|| ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Birthday: 01-02-2003 Tags: 
 || 	2. Betsy Choo Tags: [secretive]
 || 	3. Dickson Ee Phone: 444444 Address: 444, delta street Birthday: 09-08-2007 Tags: [friends]
-|| 	4. Esther Potato Phone: 555555 Email: esther@not.a.real.potato Birthday: 15-02-1945 Tags: [tubers][starchy]
+|| 	4. Esther Potato Phone: 555555 Email: esther@not.a.real.potato Birthday: 15-08-1945 Tags: [tubers][starchy]
 || 
 || 4 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  delete 4]
-|| Deleted Person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street Birthday: 15-02-1945 Tags: [tubers][starchy]
+|| Deleted Person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street Birthday: 15-08-1945 Tags: [tubers][starchy]
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Birthday: 01-02-2003 Tags: 
