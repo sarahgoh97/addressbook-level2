@@ -28,7 +28,7 @@ public class DeleteCommandTest {
     public void setUp() throws Exception {
         Person johnDoe = new Person(new Name("John Doe"), new Phone("61234567", false),
                 new Email("john@doe.com", false), new Address("395C Ben Road", false),
-                new Birthday("00-00-0000", false), new UniqueTagList());
+                new Birthday("01-01-1000", false), new UniqueTagList());
         Person janeDoe = new Person(new Name("Jane Doe"), new Phone("91234567", false),
                 new Email("jane@doe.com", false), new Address("33G Ohm Road", false),
                 new Birthday("11-11-1111", false), new UniqueTagList());

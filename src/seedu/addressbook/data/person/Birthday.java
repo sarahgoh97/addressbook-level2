@@ -13,6 +13,7 @@ public class Birthday {
     public static final String EXAMPLE = "09-08-1965";
     public static final String MESSAGE_BIRTHDAY_CONSTRAINTS =
                 "Person birthdays should be separated by '-' and in the format DD-MM-YYYY";
+    public static final String MESSAGE_BIRTHDAY_MONTH_CONSTRAINTS = ", person birthday months (MM) should be within 01 to 12";
     public static final String BIRTHDAY_VALIDATION_REGEX = "\\d{2}\\-\\d{2}\\-\\d{4}";
 
     public final String value;
@@ -32,11 +33,21 @@ public class Birthday {
             throw new IllegalValueException(MESSAGE_BIRTHDAY_CONSTRAINTS);
         }
         this.value = trimmedBirthday;
-        String month = trimmedBirthday.substring(3,5);
+        String month = trimmedBirthday.substring(3,5); //the indices of MM
         this.month = Integer.parseInt(month);
+        if (!isValidMonth(this.month)) {
+            throw new IllegalValueException(MESSAGE_BIRTHDAY_CONSTRAINTS + MESSAGE_BIRTHDAY_MONTH_CONSTRAINTS);
+        }
         if (!months.contains(this.month)) {
             months.add(Integer.parseInt(month));
         }
+    }
+
+    /**
+     * Returns true if the given month is a valid month (ie. 1 to 12)
+     */
+    public static boolean isValidMonth(int month) {
+        return month >= 1 && month <= 12;
     }
 
     /**

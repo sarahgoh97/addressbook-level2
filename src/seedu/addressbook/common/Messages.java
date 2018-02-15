@@ -16,4 +16,5 @@ public class Messages {
     public static final String MESSAGE_WELCOME = "Welcome to your Address Book!";
     public static final String MESSAGE_USING_STORAGE_FILE = "Using storage file : %1$s";
     public static final String MESSAGE_NO_PERSONS_BIRTHDAY_MONTH = "Nobody has birthday in this month";
+    public static final String MESSAGE_INVALID_MONTH = "Months should be within 1 to 12, inclusive";
 }
