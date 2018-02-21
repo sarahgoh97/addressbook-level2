@@ -23,12 +23,4 @@ public class Email extends Contact {
         super(MESSAGE_EMAIL_CONSTRAINTS, EMAIL_VALIDATION_REGEX, email, isPrivate);
     }
 
-
-    @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof Email // instanceof handles nulls
-                && this.value.equals(((Email) other).value)); // state check
-    }
-
 }

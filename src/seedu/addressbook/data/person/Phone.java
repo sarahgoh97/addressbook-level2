@@ -21,11 +21,4 @@ public class Phone extends Contact{
     public Phone(String phone, boolean isPrivate) throws IllegalValueException {
         super(MESSAGE_PHONE_CONSTRAINTS, PHONE_VALIDATION_REGEX, phone, isPrivate);
     }
-
-    @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof Phone // instanceof handles nulls
-                && this.value.equals(((Phone) other).value)); // state check
-    }
 }

@@ -31,7 +31,7 @@ public class Contact {
     }
 
     /**
-     * Returns true if the given string is a valid person email.
+     * Returns true if the given string is valid.
      */
     protected boolean isValidContact(String test) {
         return test.matches(VALIDATION_REGEX);
@@ -47,7 +47,15 @@ public class Contact {
         return value.hashCode();
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof Contact // instanceof handles nulls
+                && this.value.equals(((Contact) other).value)); // state check
+    }
+
     public boolean isPrivate() {
         return isPrivate;
     }
+
 }
