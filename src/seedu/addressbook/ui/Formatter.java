@@ -8,6 +8,9 @@ import java.util.List;
 
 import static seedu.addressbook.common.Messages.*;
 
+/**
+ * Formatter of the application. Formats the messages to be shown to user.
+ */
 public class Formatter {
     /** A decorative prefix added to the beginning of lines printed by AddressBook */
     static final String LINE_PREFIX = "|| ";
